@@ -41,7 +41,10 @@ jobs:
         run: |
           previous_tag="$(
             git tag --merged HEAD --list 'r*' \
-              | grep -E '^r[0-9]+$' \
+              | grep -E '^r[0-9]+$' || true
+          )"
+          previous_tag="$(
+            printf '%s\n' "${previous_tag}" \
               | sort -V \
               | tail -n 1
           )"
