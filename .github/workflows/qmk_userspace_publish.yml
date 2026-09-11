@@ -40,7 +40,7 @@ jobs:
         shell: bash
         run: |
           previous_tag="$(
-            git tag --list 'r*' \
+            git tag --merged HEAD --list 'r*' \
               | grep -E '^r[0-9]+$' \
               | sort -V \
               | tail -n 1
