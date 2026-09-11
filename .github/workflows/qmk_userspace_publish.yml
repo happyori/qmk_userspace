@@ -40,7 +40,7 @@ jobs:
         shell: bash
         run: |
           previous_tag="$(
-            git tag --merged HEAD --list 'r*' \
+            git tag --list 'r*' \
               | grep -E '^r[0-9]+$' || true
           )"
           previous_tag="$(
